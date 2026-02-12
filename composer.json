@@ -1,0 +1,40 @@
+{
+    "name": "mrshanebarron/laraveldesign",
+    "description": "WordPress-like CMS for Laravel with a Wix-style visual page builder. Posts, pages, categories, tags, menus, media library, and drag-and-drop editing powered by GrapesJS.",
+    "type": "library",
+    "license": "MIT",
+    "keywords": ["laravel", "cms", "wordpress", "blog", "pages", "posts", "page-builder", "grapesjs", "filament", "livewire", "drag-and-drop", "visual-editor"],
+    "homepage": "https://laraveldesign.com",
+    "authors": [
+        {
+            "name": "Shane Barron",
+            "email": "mrshanebarron@gmail.com",
+            "homepage": "https://sbarron.com",
+            "role": "Developer"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/mrshanebarron/laraveldesign/issues",
+        "source": "https://github.com/mrshanebarron/laraveldesign"
+    },
+    "require": {
+        "php": "^8.2",
+        "illuminate/support": "^11.0|^12.0",
+        "filament/filament": "^3.0",
+        "livewire/livewire": "^3.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "MrShaneBarron\\LaravelDesign\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "MrShaneBarron\\LaravelDesign\\LaravelDesignServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
