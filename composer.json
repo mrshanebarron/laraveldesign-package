@@ -14,8 +14,9 @@
         }
     ],
     "support": {
-        "issues": "https://github.com/mrshanebarron/laraveldesign/issues",
-        "source": "https://github.com/mrshanebarron/laraveldesign"
+        "issues": "https://github.com/mrshanebarron/laraveldesign-package/issues",
+        "source": "https://github.com/mrshanebarron/laraveldesign-package",
+        "docs": "https://laraveldesign.com"
     },
     "require": {
         "php": "^8.2",
@@ -35,6 +36,6 @@
             ]
         }
     },
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "prefer-stable": true
 }
