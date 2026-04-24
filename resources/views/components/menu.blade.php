@@ -6,6 +6,7 @@
     'linkClass' => '',
     'activeClass' => 'active',
     'dropdownClass' => 'dropdown',
+    'tag' => 'nav',
 ])
 
 @php
@@ -17,14 +18,16 @@
 @endphp
 
 @if($menu)
-    @foreach($menu->items as $item)
-        @include('laraveldesign::components.menu-item', [
-            'item' => $item,
-            'itemClass' => $itemClass,
-            'linkClass' => $linkClass,
-            'activeClass' => $activeClass,
-            'dropdownClass' => $dropdownClass,
-            'location' => $location,
-        ])
-    @endforeach
+    <{{ $tag }} @class(['ld-menu', $class]) @if($location) data-menu-location="{{ $location }}" @endif>
+        @foreach($menu->items as $item)
+            @include('laraveldesign::components.menu-item', [
+                'item' => $item,
+                'itemClass' => $itemClass,
+                'linkClass' => $linkClass,
+                'activeClass' => $activeClass,
+                'dropdownClass' => $dropdownClass,
+                'location' => $location,
+            ])
+        @endforeach
+    </{{ $tag }}>
 @endif
