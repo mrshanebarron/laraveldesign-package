@@ -6,7 +6,7 @@
 
 A WordPress-like CMS package for Laravel with a **Wix-style visual page builder**. Build beautiful pages with drag-and-drop, or use the classic editor for blog posts.
 
-**Live demo:** [laraveldesign.demo.sbarron.com](https://laraveldesign.demo.sbarron.com) · **Homepage:** [laraveldesign.com](https://laraveldesign.com)
+**Live demo:** [socialapparatus.com](https://socialapparatus.com) · **Homepage:** [laraveldesign.com](https://laraveldesign.com)
 
 ## Features
 
