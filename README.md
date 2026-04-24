@@ -1,6 +1,12 @@
-# Laravel Design
+# LaravelDesign
+
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/mrshanebarron/laraveldesign.svg?style=flat-square)](https://packagist.org/packages/mrshanebarron/laraveldesign)
+[![Total Downloads](https://img.shields.io/packagist/dt/mrshanebarron/laraveldesign.svg?style=flat-square)](https://packagist.org/packages/mrshanebarron/laraveldesign)
+[![License](https://img.shields.io/packagist/l/mrshanebarron/laraveldesign.svg?style=flat-square)](https://github.com/mrshanebarron/laraveldesign-package/blob/main/LICENSE)
 
 A WordPress-like CMS package for Laravel with a **Wix-style visual page builder**. Build beautiful pages with drag-and-drop, or use the classic editor for blog posts.
+
+**Live demo:** [laraveldesign.demo.sbarron.com](https://laraveldesign.demo.sbarron.com) · **Homepage:** [laraveldesign.com](https://laraveldesign.com)
 
 ## Features
 
