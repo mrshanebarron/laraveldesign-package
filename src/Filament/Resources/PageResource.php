@@ -46,6 +46,11 @@ class PageResource extends Resource
                                     ->live(onBlur: true)
                                     ->afterStateUpdated(fn (string $operation, $state, Forms\Set $set) =>
                                         $operation === 'create' ? $set('slug', \Illuminate\Support\Str::slug($state)) : null
+                                    )
+                                    ->suffixAction(
+                                        class_exists(\MrShaneBarron\LaravelDesignPneuma\Filament\Actions\PneumaActions::class)
+                                            ? \MrShaneBarron\LaravelDesignPneuma\Filament\Actions\PneumaActions::draftFromTitle('content')
+                                            : null
                                     ),
 
                                 Forms\Components\TextInput::make('slug')
@@ -65,7 +70,15 @@ class PageResource extends Resource
 
                                 Forms\Components\RichEditor::make('content')
                                     ->columnSpanFull()
-                                    ->visible(fn (Forms\Get $get) => $get('editor_mode') !== 'builder'),
+                                    ->visible(fn (Forms\Get $get) => $get('editor_mode') !== 'builder')
+                                    ->hintActions(
+                                        class_exists(\MrShaneBarron\LaravelDesignPneuma\Filament\Actions\PneumaActions::class)
+                                            ? [
+                                                \MrShaneBarron\LaravelDesignPneuma\Filament\Actions\PneumaActions::summarize('content', 'excerpt'),
+                                                \MrShaneBarron\LaravelDesignPneuma\Filament\Actions\PneumaActions::translate('content', 'content'),
+                                            ]
+                                            : []
+                                    ),
 
                                 Forms\Components\Placeholder::make('builder_notice')
                                     ->label('')
@@ -82,7 +95,12 @@ class PageResource extends Resource
 
                                 Forms\Components\Textarea::make('meta_description')
                                     ->label('Meta Description')
-                                    ->rows(3),
+                                    ->rows(3)
+                                    ->hintActions(
+                                        class_exists(\MrShaneBarron\LaravelDesignPneuma\Filament\Actions\PneumaActions::class)
+                                            ? [\MrShaneBarron\LaravelDesignPneuma\Filament\Actions\PneumaActions::metaDescription('content', 'meta_description')]
+                                            : []
+                                    ),
                             ])
                             ->collapsed(),
                     ])

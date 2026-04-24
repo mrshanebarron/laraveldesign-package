@@ -41,6 +41,11 @@ class PostResource extends Resource
                                     ->live(onBlur: true)
                                     ->afterStateUpdated(fn (string $operation, $state, Forms\Set $set) =>
                                         $operation === 'create' ? $set('slug', \Illuminate\Support\Str::slug($state)) : null
+                                    )
+                                    ->suffixAction(
+                                        class_exists(\MrShaneBarron\LaravelDesignPneuma\Filament\Actions\PneumaActions::class)
+                                            ? \MrShaneBarron\LaravelDesignPneuma\Filament\Actions\PneumaActions::draftFromTitle('content')
+                                            : null
                                     ),
 
                                 Forms\Components\TextInput::make('slug')
@@ -48,7 +53,15 @@ class PostResource extends Resource
                                     ->unique(Post::class, 'slug', ignoreRecord: true),
 
                                 Forms\Components\RichEditor::make('content')
-                                    ->columnSpanFull(),
+                                    ->columnSpanFull()
+                                    ->hintActions(
+                                        class_exists(\MrShaneBarron\LaravelDesignPneuma\Filament\Actions\PneumaActions::class)
+                                            ? [
+                                                \MrShaneBarron\LaravelDesignPneuma\Filament\Actions\PneumaActions::summarize('content', 'excerpt'),
+                                                \MrShaneBarron\LaravelDesignPneuma\Filament\Actions\PneumaActions::generateTags('content'),
+                                            ]
+                                            : []
+                                    ),
 
                                 Forms\Components\Textarea::make('excerpt')
                                     ->rows(3)
@@ -63,7 +76,12 @@ class PostResource extends Resource
 
                                 Forms\Components\Textarea::make('meta_description')
                                     ->label('Meta Description')
-                                    ->rows(3),
+                                    ->rows(3)
+                                    ->hintActions(
+                                        class_exists(\MrShaneBarron\LaravelDesignPneuma\Filament\Actions\PneumaActions::class)
+                                            ? [\MrShaneBarron\LaravelDesignPneuma\Filament\Actions\PneumaActions::metaDescription('content', 'meta_description')]
+                                            : []
+                                    ),
                             ])
                             ->collapsed(),
                     ])
